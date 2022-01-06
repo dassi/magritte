@@ -52,37 +52,33 @@ MAElementDescription >> handlesSelector: aSelector [
 MAElementDescription >> lazilyInitializeFrom: currentValue for: anObject [
 	"- The default value is cached if the description's #shouldCacheDefault property is true. An example when caching is necessary is for to-many relations because the user may modify the collection, which will then be thrown away if not cached
 
-	Usage: 
+	Usage:
 		MyDomainObject>>#getter
 			^ self maLazyPropertyUsing: self descriptionName
-		
+
 		MyDomainObject>>#descriptionName
 			^ MAStringDescription new
 					accessor: #name;
 					default: 'Alan';
 					yourself"
-	
-	| defaultValue |		
+
+	| defaultValue |
 	currentValue ifNotNil: [ ^ currentValue ].
 	defaultValue := self default.
 	self shouldCacheDefault ifTrue: [ anObject write: defaultValue using: self ].
 	^ defaultValue
 ]
 
-{ #category : #'*magritte-model' }
-MAElementDescription >> printFor: anObject on: aWriteStream [ 
-	(self read: anObject) ifNotNil: [ :value | aWriteStream nextPutAll: (self toString: value) ]
-]
 
 { #category : #printing }
 MAElementDescription >> storeOn: aStream [
-	aStream 
+	aStream
 		nextPutAll: self className;
 		nextPutAll: ' new'; cr.
 	(self magritteDescription reject: #isReadOnly) do: [ :desc |
 		| value |
 		value := desc read: self.
-		(value ~= desc default and: [ value isNotNil ]) ifTrue: [ 
+		(value ~= desc default and: [ value isNotNil ]) ifTrue: [
 			desc accessor store: value inDescriptionOn: aStream ] ].
 	aStream nextPutAll: 'yourself'
 ]
