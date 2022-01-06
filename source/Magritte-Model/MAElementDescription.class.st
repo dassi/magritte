@@ -69,11 +69,6 @@ MAElementDescription >> lazilyInitializeFrom: currentValue for: anObject [
 	^ defaultValue
 ]
 
-{ #category : #'*magritte-model' }
-MAElementDescription >> printFor: anObject on: aWriteStream [ 
-	(self read: anObject) ifNotNil: [ :value | aWriteStream nextPutAll: (self toString: value) ]
-]
-
 { #category : #printing }
 MAElementDescription >> storeOn: aStream [
 	aStream
