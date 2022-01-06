@@ -25,12 +25,6 @@ MACompositeConflict >> hash [
 	^ self species hash
 ]
 
-{ #category : #'class membership' }
-MACompositeConflict >> isKindOf: aClass [
-	"This is to pass #validateKind:"
-	^ (super isKindOf: aClass) or: [ self kind = aClass ]
-]
-
 { #category : #accessing }
 MACompositeConflict >> kind [
 	^ kind
@@ -39,6 +33,14 @@ MACompositeConflict >> kind [
 { #category : #accessing }
 MACompositeConflict >> kind: aClass [
 	kind := aClass
+]
+
+{ #category : #'class membership' }
+MACompositeConflict >> myIsKindOf: aClass [
+	"TBD GemStone does not allow to reimplement isKindOf:. Bad practice, anyway, so I stowed this away"
+
+	"This is to pass #validateKind:"
+	^ (super isKindOf: aClass) or: [ self kind = aClass ]
 ]
 
 { #category : #printing }
