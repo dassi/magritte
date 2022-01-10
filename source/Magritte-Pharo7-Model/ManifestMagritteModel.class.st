@@ -4,7 +4,7 @@ I store metadata for this package. These meta data are used by other tools such 
 Class {
 	#name : #ManifestMagritteModel,
 	#superclass : #PackageManifest,
-	#category : #'Magritte-Model-Manifest'
+	#category : #'Magritte-Pharo7-Model'
 }
 
 { #category : #'code-critics' }
