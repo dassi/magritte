@@ -2,6 +2,7 @@ baselines
 baseline330ForPharo: spec
 	spec for: #squeakCommon do: [ 
 		spec
+			package: 'Magritte-Deprecated3dot7' with: [ spec requires: #('Magritte-Model' 'Magritte-Morph') ];
 			package: 'Magritte-Model' with: [ spec includes: #('Magritte-Pharo-Model') ];
 			package: 'Magritte-Tests-Model' with: [ spec includes: #('Magritte-Tests-Pharo-Model') ];
 			package: 'Magritte-Pharo-Model' with: [ spec requires: #('Magritte-Model') ];
