@@ -47,6 +47,7 @@ BaselineOfMagritte >> baseline310CommonExtDeps: spec [
 BaselineOfMagritte >> baseline330ForPharo: spec [
 	spec for: #squeakCommon do: [ 
 		spec
+			package: 'Magritte-Deprecated3dot7' with: [ spec requires: #('Magritte-Model' 'Magritte-Morph') ];
 			package: 'Magritte-Model' with: [ spec includes: #('Magritte-Pharo-Model') ];
 			package: 'Magritte-Tests-Model' with: [ spec includes: #('Magritte-Tests-Pharo-Model') ];
 			package: 'Magritte-Pharo-Model' with: [ spec requires: #('Magritte-Model') ];
@@ -105,7 +106,6 @@ BaselineOfMagritte >> baseline: spec [
 					spec 
 						requires: #('Grease');
 						includes: #('Magritte-Deprecated3dot7') ];
-				package: 'Magritte-Deprecated3dot7' with: [ spec requires: #('Magritte-Model' 'Magritte-Morph') ];
 				package: 'Magritte-Tests-Model' with: [ spec requires: #('Magritte-Model') ];
 				package: 'Magritte-Tests-Files-Model' with: [ spec requires: #('Grease' 'Magritte-Tests-Model') ];
 				package: 'Magritte-Seaside' with: [ spec requires: #('Magritte-Model' 'Seaside3') ];
